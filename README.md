@@ -1,70 +1,87 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Events Board
 
-## Available Scripts
+This project manages the events at ARC College. It shows the upcoming events, the venue of the event and staff assigned to that event. User can create an event, assign staff to an event, update other event details and delete an event.
 
-In the project directory, you can run:
+# API
 
-### `npm start`
+# Endpoints
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+http://localhost:9292/events
+This endpoint shows the list of all events
+[
+{"id":3,"name":"SNE Conference","event_type":"Internal","number_of_participants":350,"status":"confirmed","event_date":"2023-04-29T00:00:00.000Z","venue_id":1,"event_staff_id":null,
+"venue":
+    {"id":1,
+    "name":"Dias",
+    "capacity":500}
+},
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+{"id":6,"name":"HoDs meeting","event_type":"Internal","number_of_participants":20,"status":"confirmed","event_date":"2023-05-02T00:00:00.000Z","venue_id":3,"event_staff_id":10,
+"venue":
+    {"id":3,
+    "name":"Simba",
+    "capacity":20}
+},
 
-### `npm test`
+{"id":7,"name":"Funkids Entertainment","event_type":"Internal","number_of_participants":500,"status":"confirmed","event_date":"2023-05-16T00:00:00.000Z","venue_id":1,"event_staff_id":11,
+"venue":
+    {"id":1,
+    "name":"Dias",
+    "capacity":500}
+},]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+http://localhost:9292/venues
+This endpoint shows a list of all venues 
+[
+{"id":1,"name":"Dias","capacity":500},
+{"id":2,"name":"Kifaru","capacity":15},
+{"id":3,"name":"Simba","capacity":20},
+{"id":4,"name":"Seneiya","capacity":100}
+]
+http://localhost:9292//events/:id
+This endpoint shows details of a particular event
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    {
+        "id":4,
+        "name":"Graduation",
+        "event_type":"Internal",
+        "number_of_participants":500,
+        "status":"pending",
+        "event_date":"2023-06-03T00:00:00.000Z",
+        "venue_id":1,
+        "event_staff_id":6
+    }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Routes
+get "/events" 
 
-### `npm run eject`
+This route fetches all the events
+  
+  get "/events/:id" 
+This route fetches an event by id
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ 
+get "/event_staff/:id" do
+This route fetches the staff assigned to an event
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+get "/venues" do
+This route fetches all the venues
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  get "/staff" do
+ This route fetches all the staff
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+  patch "/events_staffs/:id" do
+  This route updates the staff assigned to an event
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  patch "/events/:id" do
+ This route updates an event
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  post "/events" do
+  This route creates a new event
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  delete "/events/:id" do
+This route deletes an event
