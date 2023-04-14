@@ -50,13 +50,6 @@ function Event() {
             <li className="cards__item" key={item.id}>
               <div className="card" key={item.id}>
                 <>
-                  {/* <img
-                  key={item.id}
-                  onClick={handleClick}
-                  src={item.pictureUrl}
-                  alt={item.name}
-                  className="card__image"
-                /> */}
                   <div className="card__content">
                     <div
                       className="card__title"
@@ -72,7 +65,7 @@ function Event() {
                     <p>Event Type: {item.event_type}</p>
                     <br />
                     <p>Number of Participants: {item.number_of_participants}</p>
-                    {/* <p>Venue: {item.venue.name}</p> */}
+                    <p>Venue: {item.venue.name}</p>
                   </div>
                   <div className="card__detail">
                     <p></p>
