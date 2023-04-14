@@ -5,7 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 
 function AssignStaff() {
   let { id } = useParams();
-  let url = `https://events-board-api.onrender.com/event_staff/${id}`;
+  let url = `https://events-board-api.onrender.com/events_staffs/${id}`;
 
   const [staff, setStaff] = useState([]);
   const [assignStaff, setAssignStaff] = useState({
