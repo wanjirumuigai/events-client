@@ -14,7 +14,7 @@ const CreateEvent = () => {
   });
   const [venues, setVenues] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9292/venues")
+    fetch("https://events-board-api.onrender.com/venues")
       .then((res) => res.json())
       .then((data) => {
         setVenues(data);
@@ -34,7 +34,7 @@ const CreateEvent = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:9292/events", {
+    fetch("https://events-board-api.onrender.com/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

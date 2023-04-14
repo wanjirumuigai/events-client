@@ -11,7 +11,7 @@ function Event() {
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
   const [staff, setStaff] = useState([]);
-  let url = "http://localhost:9292/events";
+  let url = "https://events-board-api.onrender.com/events";
 
   useEffect(() => {
     fetch(url)

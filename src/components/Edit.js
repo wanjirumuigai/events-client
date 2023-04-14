@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 function Edit() {
   let { id } = useParams();
-  let url = "http://localhost:9292/events";
+  let url = "https://events-board-api.onrender.com/events";
   // console.log(event.name);
   const navigate = useNavigate();
   const [venues, setVenues] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9292/venues")
+    fetch("https://events-board-api.onrender.com/venues")
       .then((res) => res.json())
       .then((data) => {
         setVenues(data);

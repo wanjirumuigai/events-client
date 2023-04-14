@@ -5,7 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 
 function AssignStaff() {
   let { id } = useParams();
-  let url = `http://localhost:9292/events_staffs/${id}`;
+  let url = `https://events-board-api.onrender.com/events_staffs/${id}`;
 
   const [staff, setStaff] = useState([]);
   const [assignStaff, setAssignStaff] = useState({
@@ -35,7 +35,7 @@ function AssignStaff() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:9292/staff")
+    fetch("https://events-board-api.onrender.com/staff")
       .then((res) => res.json())
       .then((data) => {
         setStaff(data);

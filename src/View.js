@@ -6,13 +6,13 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 
 function View() {
   let { id } = useParams();
-  let url = "http://localhost:9292/events";
+  let url = "https://events-board-api.onrender.com/events";
   // console.log(event.name);
   const navigate = useNavigate();
   const [venues, setVenues] = useState([]);
   const [staff, setStaff] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9292/venues")
+    fetch("https://events-board-api.onrender.com/venues")
       .then((res) => res.json())
       .then((data) => {
         setVenues(data);
@@ -44,7 +44,7 @@ function View() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:9292/event_staff/${id}`)
+    fetch(`https://events-board-api.onrender.com/${id}`)
       .then((res) => res.json())
       .then((data) => setStaff(data));
   }, []);
