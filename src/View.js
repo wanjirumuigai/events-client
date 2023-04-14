@@ -44,7 +44,7 @@ function View() {
   }, []);
 
   useEffect(() => {
-    fetch(`https://events-board-api.onrender.com/${id}`)
+    fetch(`https://events-board-api.onrender.com/event_staff/${id}`)
       .then((res) => res.json())
       .then((data) => setStaff(data));
   }, []);
